@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkbox select all</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>select/unselect items</h1>
+    <table>
+      <tr>
+        <th>
+          <input type="checkbox" name="selectAll" id="selectAll" />
+        </th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id="select1" class="select" /></td>
+        <td>Mike</td>
+        <td>22</td>
+        <td>MEL</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id="select2" class="select" /></td>
+        <td>Harmon</td>
+        <td>30</td>
+        <td>TXG</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="" id="select3" class="select" /></td>
+        <td>Vic</td>
+        <td>25</td>
+        <td>LAS</td>
+      </tr>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      let selectAll = document.querySelector("#selectAll");
+      let select = document.querySelectorAll(".select");
+      $(document).ready(function () {
+        //全選或取消全選
+        $(selectAll).change(function () {
+          if ($(this).prop("checked") === true) {
+            $(select).prop("checked", true);
+          } else {
+            $(select).prop("checked", false);
+          }
+        });
+
+        //若任何選項取消選取，則原本如有勾選的全選也取消
+        $(select).change(function () {
+          let allSelects = $(select).length;
+          let checked = $(".select:checked").length;
+          if (checked === allSelects) {
+            $(selectAll).prop("checked", true);
+          } else {
+            $(selectAll).prop("checked", false);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

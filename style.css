@@ -1,0 +1,33 @@
+body {
+  height: 100vh;
+  background-color: #da0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+table {
+  background-color: #fff;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: rgb(198, 206, 221);
+}
+
+th,
+td {
+  padding: 8px 14px;
+}
